@@ -18,11 +18,6 @@ struct FurryFriendsApp: App {
                         Image(systemName: "pawprint")
                         Text("Dogs")
                     }
-               ContentView()
-                    .tabItem {
-                        Image(systemName: "globe.americas")
-                        Text("Both")
-                    }
                 CatView()
                     .tabItem {
                         Image(systemName: "pawprint.fill")

@@ -66,9 +66,18 @@ struct CatView: View {
             
         
             List(favourites, id: \.self) { currentFavourit in
-                Text(currentFavourit.file)
+                VStack{
+                    AsyncImage(url: URL(string: currentFavourit.file),
+                               content: { downloadedImage in
+                        downloadedImage
+                            .resizable()
+                            .scaledToFit()
+                    },
+                               placeholder: {
+                        ProgressView()
+                    })
+                }
             }
-            
             Spacer()
             
         }
@@ -206,3 +215,4 @@ struct CatView_Previews: PreviewProvider {
     }
 }
 
+                    

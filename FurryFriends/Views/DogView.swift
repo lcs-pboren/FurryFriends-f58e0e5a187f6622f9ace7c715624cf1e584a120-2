@@ -67,9 +67,17 @@ struct DogView: View {
             
         
             List(favourites, id: \.self) { currentFavourit in
-                Text(currentFavourit.message)
+                AsyncImage(url: URL(string: currentFavourit.message),
+                           content: { downloadedImage in
+                    downloadedImage
+                        .resizable()
+                        .scaledToFit()
+                },
+                           placeholder: {
+                    ProgressView()
+                })
             }
-            
+        
             Spacer()
             
         }
